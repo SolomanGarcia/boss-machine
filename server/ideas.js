@@ -19,6 +19,10 @@ ideasRouter.param('id', (req, res, next, id) => {
 });
 
 // GET /api/ideas to get an array of all ideas
-ideasRouter.get('/', )
+ideasRouter.get('/', (req, res, next) => {
+  res.send(getAllFromDatabase('ideas'));
+});
+
+
 
 module.exports = ideasRouter;
