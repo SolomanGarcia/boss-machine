@@ -51,6 +51,14 @@ minionsRouter.delete('/:minionId', (req, res, next) => {
   res.send();
 });
 
+// GET /api/minions/:minionId/work to get an array of all work for the specified minon
+minionsRouter.get('/:minionId/work', (req, res, next) => {
+  const work = getAllFromDatabase('work').filter((singleWork) => {
+    return singleWork.minionId === req.params.minionId;
+  });
+  res.send(work);
+});
+
 module.exports = minionsRouter;
 
 
