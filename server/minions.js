@@ -34,6 +34,12 @@ minionsRouter.get('/:minionId', (req, res, next) => {
   res.send(req.minion)
 });
 
+// PUT /api/minions/:minionId to update a single minion by id
+minionsRouter.put('/:minionId', (req, res, next) => {
+  let updatedMinionInstance = updateInstanceInDatabase('minions', req.body);
+  res.send(updatedMinionInstance);
+});
+
 module.exports = minionsRouter;
 
 
