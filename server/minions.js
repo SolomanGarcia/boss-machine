@@ -90,7 +90,7 @@ minionsRouter.put('/:minionId/work/:workId', (req, res, next) => {
 // DELETE /api/minions/:minionId/work/:workId to delete a single work by id
 minionsRouter.delete('/:minionId/work/:workId', (req, res, next) => {
   const deleted = deleteFromDatabasebyId('work', req.params.workId);
-  if (delee) {
+  if (deleted) {
     res.status(204);
   } else {
     res.status(500);
