@@ -29,7 +29,10 @@ ideasRouter.post('/', (req, res, next) => {
   res.status(201).send(newIdea);
 });
 
-
+// GET /api/ideas/:ideaId to get a single idea by id
+ideasRouter.get('/:ideaId', (req, res, next) => {
+  res.send(req.idea);
+});
 
 module.exports = ideasRouter;
 
