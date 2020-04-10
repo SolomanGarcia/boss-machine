@@ -1,4 +1,4 @@
-const minionsRouter = require("express").Router();
+const minionsRouter = require('express').Router();
 
 const {
   addToDatabase,
@@ -6,7 +6,7 @@ const {
   getFromDatabaseById,
   updateInstanceInDatabase,
   deleteFromDatabasebyId,
-} = require("./db");
+} = require('./db');
 
 minionsRouter.param('minionId', (req, res, next, id) => {
   const minion = getFromDatabaseById('minions', id);
