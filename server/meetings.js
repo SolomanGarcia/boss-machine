@@ -13,4 +13,10 @@ meetingsRouter.post('/', (req, res, next) => {
   res.status(201).send(newMeeting);
 });
 
+// DELETE /api/meetings to delete all meetings from the database
+meetingsRouter.delete('/', (req, res, next) => {
+  deleteAllFromDatabase('meetings');
+  res.status(204).send();
+});
+
 module.exports = meetingsRouter;
