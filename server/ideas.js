@@ -32,18 +32,18 @@ ideasRouter.post('/', checkMillionDollarIdea, (req, res, next) => {
 });
 
 // GET /api/ideas/:ideaId to get a single idea by id
-ideasRouter.get('/:ideaId', (req, res, next) => {
+ideasRouter.get('/:id', (req, res, next) => {
   res.send(req.idea);
 });
 
 // PUT /api/ideas/:ideaId to update a single idea by id
-ideasRouter.put('/:ideaId', checkMillionDollarIdea, (req, res, next) => {
+ideasRouter.put('/:id', checkMillionDollarIdea, (req, res, next) => {
   let updatedInstance = updateInstanceInDatabase('ideas', req.body);
   res.send(updatedInstance);
 });
 
 // DELETE /api/ideas/:ideaId to delete a single idea by id
-ideasRouter.delete('/:ideaId', (req, res, data) => {
+ideasRouter.delete('/:id', (req, res, data) => {
   const deleted = deleteFromDatabasebyId('ideas', (req.params.id));
   if (deleted) {
     res.status(204);
