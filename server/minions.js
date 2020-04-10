@@ -59,6 +59,14 @@ minionsRouter.get('/:minionId/work', (req, res, next) => {
   res.send(work);
 });
 
+// POST /api/minions/:minionId/work to create a new work object and save it to the database
+minionsRouter.post('/:minionId/work', (req, res, next) => {
+  const workToAdd = req.body;
+  workToAdd.minionId = req.params.minionId;
+  const createdWork = addToDatabase('work', workToAdd);
+  res.status(201).send(createdWork);
+});
+
 module.exports = minionsRouter;
 
 
