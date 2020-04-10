@@ -18,4 +18,8 @@ minionsRouter.param('minionId', (req, res, next, id) => {
   }
 });
 
+minionsRouter.get('/', (req, res, next) => {
+  res.send(getAllFromDatabase('minions'));
+});
+
 module.exports = minionsRouter;
