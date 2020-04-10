@@ -34,6 +34,12 @@ ideasRouter.get('/:ideaId', (req, res, next) => {
   res.send(req.idea);
 });
 
+// PUT /api/ideas/:ideaId to update a single idea by id
+ideasRouter.put('/:ideaId', (req, res, next) => {
+  let updatedInstance = updateInstanceInDatabase('ideas', req.body);
+  res.send(updatedInstance);
+});
+
 module.exports = ideasRouter;
 
 
